@@ -1,0 +1,1 @@
+clenergy-low-power-solar-logger
