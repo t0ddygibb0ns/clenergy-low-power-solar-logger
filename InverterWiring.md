@@ -1,0 +1,8 @@
+Here is the pin-out from Clenergy inverter documentation:
+http://clenergy-low-power-solar-logger.googlecode.com/files/InverterRS232Connections.JPG
+
+Only 3 wires are connected (so that makes it easy).  I didn't find this until later, so using some parts from Jaycar and some Cat5 cable, I made a cable (using all 8 wires) to connect to the inverter at one end, into my roof and down a wall cavity to a DB9 faceplate inside, around 5 metres away.  From my reading, you just need to make sure each of the 3 key wires use a different pair (ie those not twisted together) to avoid cross-talk.  I understand that you should easily be able to get 20+ metres from an RS232 serial connection.
+
+**Note:** My first "Got ya" was the wiring to the inverter.  On the MAX232 it is really easy to switch Rx and Tx connections and expect that to resolve any wiring problems.  But that doesn't work.  The crossing of these wires must happen outside the MAX232 board) - And it took me hours to figure this out.  So I (eventually) just  swapped pins 2 and 3 at one end of my new lead.  I then just used a null-modem serial cable from the wall plate to my Arduino to get serial communications working.
+
+**WARNING** - As I already mentioned above, you can't just connect the RS232 connectors into the Arduino board as the Arduino will only accept around 5 volts.  A typical RS232 connection works at anywhere between around 8 to 16 volts or more, and that would fry your board.  The MAX232 board sourced from ebay sorts that issue.
